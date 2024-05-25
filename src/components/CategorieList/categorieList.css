@@ -1,0 +1,119 @@
+#catBox{
+    min-width: 300px;
+    max-width: 200px;
+    max-height: 220px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px black;
+    background-color: rgba(0, 0, 0, 0.751);
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  
+   
+    transition: all 0.5s ease-in-out;   
+}
+#catBox:hover{
+    box-shadow: 0 0 10px white;
+}
+
+#catBox h2{
+    text-align: center;
+    text-wrap: wrap;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 100px;
+    scrollbar-color: rgba(0, 0, 0, 0.119) transparent;
+    cursor: pointer;
+}
+.delete-btn{
+    visibility: hidden ;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    color: rgb(158, 155, 155);
+    cursor: pointer;
+}
+.delete-btn:hover{
+    color: rgb(243, 96, 96);
+    font-size: 50px;
+}
+
+.date-time{
+    visibility: hidden ;
+    display: flex;
+    opacity: 0.5;
+    font-style: italic;  
+    padding: 10px;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.date-time:hover{
+    background-color: rgba(0, 0, 0, 0.575);
+    opacity: 0.7;
+    color: greenyellow;
+
+}
+#catBox:hover .delete-btn {
+    visibility: visible ;
+    transition: all 0.5s ease-in-out;  
+}
+
+#catBox:hover .date-time {
+    visibility: visible ;
+    transition: all 0.5s ease-in-out;  
+    
+} 
+
+@media screen and (max-width: 1120px){
+    .delete-btn, .date-time{
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #catBox{
+        min-width: 200px;
+    }
+
+    .date-time{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        width: 50%;
+        align-items: left;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    #catBox h2{
+        font-weight: 600;
+        text-align: center;
+        height: 80px;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 480px){
+
+    #catBox{ 
+        min-width: 300px;
+        max-width: 200px;
+        gap: 15px;
+    }
+    #catBox h2{
+        font-weight: 500;
+        text-align: center;
+        height: 20px;
+        text-align: left;
+    }
+
+    .date-time{
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+
+}

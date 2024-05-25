@@ -1,0 +1,38 @@
+#input{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 10px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#input .btn{
+  font-size: 35px;
+  opacity: 0.5;
+  color: aliceblue;
+ 
+}
+/*#input .btn02{
+    font-size: 30px;
+    opacity: 0.5;
+}*/
+
+#input .btn02:hover{
+    opacity: 1;
+}
+
+#input .btn:hover{
+    opacity: 1;
+}
+
+@media screen and (max-width:500px){
+    #input{
+        width: 95vw;
+    }
+    
+}

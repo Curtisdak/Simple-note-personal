@@ -21,7 +21,7 @@ export const Login = () => {
             navigate('/home')     
         }else{
           navigate('/')
-          return 'Enter your name'
+          return alert('Fill the box to get Access')
         }
     }
   return (

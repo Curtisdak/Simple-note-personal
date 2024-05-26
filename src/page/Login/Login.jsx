@@ -1,20 +1,27 @@
-import  { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom';
 import Image from '../../assets/background01.jpg';
+import { useContext } from 'react';
+import { UserNameContext } from '../../Context/Context';
 import './login.css';
 
 
 export const Login = () => {
     const navigate = useNavigate();
-    const[value, setvalue]= useState("");
+    const{value, setValue}= useContext(UserNameContext);
 
     const handleInp = (e) =>{
-        setvalue(e.target.value)
+        setValue(e.target.value);
+        // console.log(e.target.value);
     }
 
     const accessFunc =()=>{
-        if(value.trim()===""){
-            navigate('/home')
+        if(value){
+          setValue(value);
+            navigate('/home')     
+        }else{
+          navigate('/')
+          return 'Enter your name'
         }
     }
   return (
@@ -23,14 +30,12 @@ export const Login = () => {
 
      <div className='background-img'>
       <img src={Image} alt="" />
-     </div>
-    
-   
+     </div> 
        <div className='input-container'>
-        <h2>Welcome !</h2>
+        <h2>Welcome  {value} !</h2>
         <p className='todo-para'>This is a simple Todo App where you can create boxes to store you todo list or ANYTHING</p>
-        <input type="text"  value={value} placeholder='write your name here' onChange={handleInp}/>
-        <button type='button' onClick={()=> accessFunc()} >Go</button>
+        <input type="text"  value={value} placeholder='write your name here' onInput={handleInp}/>
+        <button type='button' onClick={accessFunc} onKeyDown={(e)=> e.key==='Enter'? accessFunc():"null"} >Go</button>
         </div>
     </div>
     

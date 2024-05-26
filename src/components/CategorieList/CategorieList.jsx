@@ -11,7 +11,7 @@ export const CategorieList = ({ catBox, deleteCategory,  }) => {
   const navigate = useNavigate()
   return (
     <div id="catBox" >
-      <h2 onClick={()=> navigate(`/listpage/${catBox.id}/${catBox.categoryName}`)}>{capitalize(catBox.categoryName)} {catBox.id} </h2>
+      <h2 onClick={()=> navigate(`/listpage/${catBox.id}/${catBox.categoryName}`)}>{capitalize(catBox.categoryName)}</h2>
       <p className="date-time">
         {catBox.date} {catBox.time}
       </p>

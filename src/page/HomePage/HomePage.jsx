@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Input } from "../../components/Input/Input";
 import { CategorieList } from "../../components/CategorieList/CategorieList";
 import Image from '../../assets/background02.jpg';
+import { BsArrowLeft } from "react-icons/bs";
+
 import "./homePage.css";
+import { useNavigate } from "react-router-dom";
+import { UserNameContext } from "../../Context/Context";
 
 export const HomePage = () => {
+  const {value} = useContext(UserNameContext)
+  const navigate=useNavigate()
   const [Category, setCategory] = useState(() => {
     const saveData = localStorage.getItem("myData");
     return saveData ? JSON.parse(saveData) : [];
@@ -54,8 +60,8 @@ export const HomePage = () => {
     <div className='background-img'>
     <img src={Image} alt="" />
     </div>
-
-      <h2 className='userName'> Welcome <span>   </span> </h2>
+    <BsArrowLeft className="return-btn" onClick={() => navigate("/")} />
+      <h2 className='userName'> Welcome <span> {value}  </span> </h2>
 
       <Input
         newCat={newCat}
